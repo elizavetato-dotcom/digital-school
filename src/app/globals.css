@@ -1,26 +1,149 @@
 @import "tailwindcss";
 
+@theme {
+  /* ===== Fonts ===== */
+  --font-sans: var(--ff-display), "SB Sans Display", sans-serif;
+  --font-display: var(--ff-display), "SB Sans Display", sans-serif;
+  --font-mono: var(--ff-mono), "SB Sans Cond Mono", monospace;
+
+  /* ===== Colors ===== */
+  --color-bg: #0a0a0a;
+  --color-bright-green: #56ff71;
+  --color-light-green: #adffc6;
+  --color-light-blue: #bafffb;
+  --color-blue: #62ecff;
+  --color-sky-blue: #0882ff;
+  --color-dark-blue: #1032a1;
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* ===== Radii ===== */
+  --radius-sm: 20px;
+  --radius-card: 30px;
+  --radius-pill: 100px;
+
+  /* ===== Typography scale — SB Sans Display =====
+     Figma letterSpacing is a percentage → converted to em. */
+  --text-hero: 144px;
+  --text-hero--line-height: 1;
+  --text-hero--letter-spacing: -0.03em;
+
+  --text-numeral: 88px;
+  --text-numeral--line-height: 1;
+  --text-numeral--letter-spacing: -0.03em;
+
+  --text-h2: 64px;
+  --text-h2--line-height: 1;
+  --text-h2--letter-spacing: -0.03em;
+
+  --text-h3: 48px;
+  --text-h3--line-height: 1;
+  --text-h3--letter-spacing: -0.02em;
+
+  --text-h4: 40px;
+  --text-h4--line-height: 1.1;
+  --text-h4--letter-spacing: -0.01em;
+
+  --text-h5: 32px;
+  --text-h5--line-height: 1.2;
+  --text-h5--letter-spacing: -0.01em;
+
+  --text-t24: 24px;
+  --text-t24--line-height: 1.2;
+  --text-t24--letter-spacing: -0.01em;
+
+  --text-t20: 20px;
+  --text-t20--line-height: 1.2;
+  --text-t20--letter-spacing: 0em;
+
+  --text-t16: 16px;
+  --text-t16--line-height: 1.2;
+  --text-t16--letter-spacing: 0em;
+
+  --text-track: 20px;
+  --text-track--line-height: 1;
+  --text-track--letter-spacing: -0.02em;
+
+  /* ===== Typography scale — SB Sans Cond Mono ===== */
+  --text-cap20: 20px;
+  --text-cap20--line-height: 1;
+  --text-cap20--letter-spacing: 0em;
+
+  --text-cap16: 16px;
+  --text-cap16--line-height: 1.2;
+  --text-cap16--letter-spacing: 0em;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ===== Gradients ===== */
+  --gradient-main: linear-gradient(
+    45deg,
+    var(--color-bright-green) 21.7%,
+    var(--color-blue) 93.88%
+  );
+  --gradient-card: linear-gradient(
+    145deg,
+    rgba(173, 255, 198, 0.1) 8.26%,
+    rgba(98, 236, 255, 0.1) 59.68%,
+    rgba(8, 130, 255, 0.1) 96.28%
+  );
+  --gradient-white-text: radial-gradient(
+    120% 120% at 50% 60%,
+    #ffffff 0%,
+    #d8d8d8 100%
+  );
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    /* safety net: clip any off-canvas horizontal bleed page-wide */
+    overflow-x: clip;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-white);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-bright-green);
+    color: var(--color-black);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Fixed 1440 design canvas — scaled to the viewport via `zoom`. */
+  .design-root {
+    width: 1440px;
+    margin-inline: auto;
+    zoom: var(--design-scale, 1);
+  }
+
+  /* Page container — content 1120px, frame 1440px, side gutter 160px */
+  .container-page {
+    width: 100%;
+    max-width: 1440px;
+    margin-inline: auto;
+    padding-inline: 160px;
+  }
+
+  /* Green→blue gradient text */
+  .text-gradient-main {
+    background-image: var(--gradient-main);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* White radial gradient text (body copy) */
+  .text-gradient-white {
+    background-image: var(--gradient-white-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
 }

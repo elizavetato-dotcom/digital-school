@@ -39,3 +39,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# temp QA screenshots / logs (hidden dotfiles at repo root)
+/.*.png
+/.*.log

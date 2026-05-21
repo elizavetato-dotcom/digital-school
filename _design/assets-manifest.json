@@ -1,0 +1,458 @@
+[
+ {
+  "const": "imgEllipse16",
+  "file": "ellipse16.svg"
+ },
+ {
+  "const": "imgVector9",
+  "file": "vector9.svg"
+ },
+ {
+  "const": "imgVector10",
+  "file": "vector10.svg"
+ },
+ {
+  "const": "imgMaskGroup",
+  "file": "mask-group.svg"
+ },
+ {
+  "const": "imgEllipse28601",
+  "file": "ellipse28601.svg"
+ },
+ {
+  "const": "imgSber",
+  "file": "sber.svg"
+ },
+ {
+  "const": "imgGridOverlayBlock8",
+  "file": "grid-overlay-block8.png"
+ },
+ {
+  "const": "imgIt2",
+  "file": "it2.webp"
+ },
+ {
+  "const": "imgImage2090007800",
+  "file": "image2090007800.webp"
+ },
+ {
+  "const": "imgImage2090007801",
+  "file": "image2090007801.webp"
+ },
+ {
+  "const": "imgWoman",
+  "file": "woman.webp"
+ },
+ {
+  "const": "imgVector234257670",
+  "file": "vector234257670.webp"
+ },
+ {
+  "const": "imgSpring1",
+  "file": "spring1.webp"
+ },
+ {
+  "const": "imgSummer1",
+  "file": "summer1.webp"
+ },
+ {
+  "const": "imgAutumn1",
+  "file": "autumn1.webp"
+ },
+ {
+  "const": "imgBinaryCodeBack",
+  "file": "binary-code-back.webp"
+ },
+ {
+  "const": "imgManInMainScreen",
+  "file": "man-in-main-screen.webp"
+ },
+ {
+  "const": "imgVector7206",
+  "file": "vector7206.webp"
+ },
+ {
+  "const": "img",
+  "file": "asset.webp"
+ },
+ {
+  "const": "imgGradientFooter",
+  "file": "gradient-footer.svg"
+ },
+ {
+  "const": "imgEllipseMainGradientBlock7",
+  "file": "ellipse-main-gradient-block7.svg"
+ },
+ {
+  "const": "imgEllipseSkyBlueBlock5",
+  "file": "ellipse-sky-blue-block5.svg"
+ },
+ {
+  "const": "imgVector7191",
+  "file": "vector7191.svg"
+ },
+ {
+  "const": "imgVector7190",
+  "file": "vector7190.svg"
+ },
+ {
+  "const": "imgVector7203",
+  "file": "vector7203.svg"
+ },
+ {
+  "const": "imgVector7199",
+  "file": "vector7199.svg"
+ },
+ {
+  "const": "imgVector7202",
+  "file": "vector7202.svg"
+ },
+ {
+  "const": "imgVector7200",
+  "file": "vector7200.svg"
+ },
+ {
+  "const": "imgVector7201",
+  "file": "vector7201.svg"
+ },
+ {
+  "const": "imgEllipseBlueBlock3",
+  "file": "ellipse-blue-block3.svg"
+ },
+ {
+  "const": "imgEllipseSkyBlueBlock2",
+  "file": "ellipse-sky-blue-block2.svg"
+ },
+ {
+  "const": "imgEllipseDown",
+  "file": "ellipse-down.svg"
+ },
+ {
+  "const": "imgEllipseLeft",
+  "file": "ellipse-left.svg"
+ },
+ {
+  "const": "imgLineDownBlue100",
+  "file": "line-down-blue100.svg"
+ },
+ {
+  "const": "imgLineUpBlue100",
+  "file": "line-up-blue100.svg"
+ },
+ {
+  "const": "imgLineLeftBlue100",
+  "file": "line-left-blue100.svg"
+ },
+ {
+  "const": "imgLineRightBlue100",
+  "file": "line-right-blue100.svg"
+ },
+ {
+  "const": "img38StrokeDsIc38CirclePlus",
+  "file": "38-stroke-ds-ic38-circle-plus.svg"
+ },
+ {
+  "const": "imgEllipseDownSkyBlu60",
+  "file": "ellipse-down-sky-blu60.svg"
+ },
+ {
+  "const": "imgEllipseUpGreen60",
+  "file": "ellipse-up-green60.svg"
+ },
+ {
+  "const": "imgEllipseLeftGreen60",
+  "file": "ellipse-left-green60.svg"
+ },
+ {
+  "const": "imgLineUpGreen100",
+  "file": "line-up-green100.svg"
+ },
+ {
+  "const": "imgLineLeftGreen100",
+  "file": "line-left-green100.svg"
+ },
+ {
+  "const": "img24StrokeDsIc24Exclamation",
+  "file": "24-stroke-ds-ic24-exclamation.svg"
+ },
+ {
+  "const": "imgEllipse9",
+  "file": "ellipse9.svg"
+ },
+ {
+  "const": "imgEllipse7",
+  "file": "ellipse7.svg"
+ },
+ {
+  "const": "imgEllipse8",
+  "file": "ellipse8.svg"
+ },
+ {
+  "const": "imgGlowOnTheSides",
+  "file": "glow-on-the-sides.svg"
+ },
+ {
+  "const": "imgEllipse10",
+  "file": "ellipse10.svg"
+ },
+ {
+  "const": "imgEllipse11",
+  "file": "ellipse11.svg"
+ },
+ {
+  "const": "imgIt1",
+  "file": "it1.svg"
+ },
+ {
+  "const": "imgEllipse28580",
+  "file": "ellipse28580.svg"
+ },
+ {
+  "const": "imgImage2090007799",
+  "file": "image2090007799.svg"
+ },
+ {
+  "const": "imgEllipse28581",
+  "file": "ellipse28581.svg"
+ },
+ {
+  "const": "imgGlowOnTheSides1",
+  "file": "glow-on-the-sides1.svg"
+ },
+ {
+  "const": "imgEllipseDown1",
+  "file": "ellipse-down1.svg"
+ },
+ {
+  "const": "imgLineDownGreen100",
+  "file": "line-down-green100.svg"
+ },
+ {
+  "const": "imgLineUpBlue101",
+  "file": "line-up-blue101.svg"
+ },
+ {
+  "const": "imgLineLeftGreen101",
+  "file": "line-left-green101.svg"
+ },
+ {
+  "const": "imgLineRightBlue101",
+  "file": "line-right-blue101.svg"
+ },
+ {
+  "const": "imgVector234257671",
+  "file": "vector234257671.svg"
+ },
+ {
+  "const": "imgVector234257672",
+  "file": "vector234257672.svg"
+ },
+ {
+  "const": "imgEllipse6",
+  "file": "ellipse6.svg"
+ },
+ {
+  "const": "imgEllipse12",
+  "file": "ellipse12.svg"
+ },
+ {
+  "const": "imgEllipse13",
+  "file": "ellipse13.svg"
+ },
+ {
+  "const": "imgGlowOnTheSides2",
+  "file": "glow-on-the-sides2.svg"
+ },
+ {
+  "const": "imgEllipse14",
+  "file": "ellipse14.svg"
+ },
+ {
+  "const": "imgEllipse15",
+  "file": "ellipse15.svg"
+ },
+ {
+  "const": "imgGlowOnTheSides3",
+  "file": "glow-on-the-sides3.svg"
+ },
+ {
+  "const": "imgEllipse17",
+  "file": "ellipse17.svg"
+ },
+ {
+  "const": "imgEllipse18",
+  "file": "ellipse18.svg"
+ },
+ {
+  "const": "imgGlowOnTheSides4",
+  "file": "glow-on-the-sides4.svg"
+ },
+ {
+  "const": "imgGlowOnTheSides5",
+  "file": "glow-on-the-sides5.svg"
+ },
+ {
+  "const": "imgSpring",
+  "file": "spring.svg"
+ },
+ {
+  "const": "imgLine",
+  "file": "line.svg"
+ },
+ {
+  "const": "imgGlowOnTheSides6",
+  "file": "glow-on-the-sides6.svg"
+ },
+ {
+  "const": "imgSummer",
+  "file": "summer.svg"
+ },
+ {
+  "const": "imgGlowOnTheSides7",
+  "file": "glow-on-the-sides7.svg"
+ },
+ {
+  "const": "imgAutumn",
+  "file": "autumn.svg"
+ },
+ {
+  "const": "img24StrokeDsIc24Exclamation1",
+  "file": "24-stroke-ds-ic24-exclamation1.svg"
+ },
+ {
+  "const": "imgEllipse28602",
+  "file": "ellipse28602.svg"
+ },
+ {
+  "const": "imgEllipse28604",
+  "file": "ellipse28604.svg"
+ },
+ {
+  "const": "imgEllipse28603",
+  "file": "ellipse28603.svg"
+ },
+ {
+  "const": "imgLine5",
+  "file": "line5.svg"
+ },
+ {
+  "const": "imgLine9",
+  "file": "line9.svg"
+ },
+ {
+  "const": "img38FillDsIc38Passport",
+  "file": "38-fill-ds-ic38-passport.svg"
+ },
+ {
+  "const": "img38FillDsIc38Box",
+  "file": "38-fill-ds-ic38-box.svg"
+ },
+ {
+  "const": "img38FillDsIc38Link",
+  "file": "38-fill-ds-ic38-link.svg"
+ },
+ {
+  "const": "img38FillDsIc38PaperTray",
+  "file": "38-fill-ds-ic38-paper-tray.svg"
+ },
+ {
+  "const": "img38FillDsIc38Case",
+  "file": "38-fill-ds-ic38-case.svg"
+ },
+ {
+  "const": "img38FillDsIc38StudentHat",
+  "file": "38-fill-ds-ic38-student-hat.svg"
+ },
+ {
+  "const": "imgLightOn",
+  "file": "light-on.svg"
+ },
+ {
+  "const": "imgVector7192",
+  "file": "vector7192.svg"
+ },
+ {
+  "const": "imgVector7193",
+  "file": "vector7193.svg"
+ },
+ {
+  "const": "imgVector7194",
+  "file": "vector7194.svg"
+ },
+ {
+  "const": "imgVector7195",
+  "file": "vector7195.svg"
+ },
+ {
+  "const": "imgVector7204",
+  "file": "vector7204.svg"
+ },
+ {
+  "const": "imgVector7205",
+  "file": "vector7205.svg"
+ },
+ {
+  "const": "imgCirclesBack",
+  "file": "circles-back.svg"
+ },
+ {
+  "const": "imgVector7207",
+  "file": "vector7207.svg"
+ },
+ {
+  "const": "imgVector7208",
+  "file": "vector7208.svg"
+ },
+ {
+  "const": "imgVector234257669",
+  "file": "vector234257669.svg"
+ },
+ {
+  "const": "imgVector7209",
+  "file": "vector7209.svg"
+ },
+ {
+  "const": "imgDarkShapeOnMan",
+  "file": "dark-shape-on-man.svg"
+ },
+ {
+  "const": "imgEllipseDown2",
+  "file": "ellipse-down2.svg"
+ },
+ {
+  "const": "imgEllipseUp",
+  "file": "ellipse-up.svg"
+ },
+ {
+  "const": "imgEllipseLeft1",
+  "file": "ellipse-left1.svg"
+ },
+ {
+  "const": "imgLineUpGreen101",
+  "file": "line-up-green101.svg"
+ },
+ {
+  "const": "imgLineLeftGreen102",
+  "file": "line-left-green102.svg"
+ },
+ {
+  "const": "imgQuotes",
+  "file": "quotes.svg"
+ },
+ {
+  "const": "imgLight",
+  "file": "light.svg"
+ },
+ {
+  "const": "imgLight1",
+  "file": "light1.svg"
+ },
+ {
+  "const": "imgAi",
+  "file": "ai.svg"
+ },
+ {
+  "const": "imgVector",
+  "file": "vector.svg"
+ }
+]
