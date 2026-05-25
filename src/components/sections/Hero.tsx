@@ -15,6 +15,28 @@ export function Hero() {
           />
         </div>
 
+        {/* binary code — from the very top (top:0), mix-blend-color-dodge.
+            No hard-edge overlay inside — gradient top-fade is separate below. */}
+        <div className="pointer-events-none absolute left-0 top-0 z-[1] h-[964px] w-[1444px]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/assets/binary-code-back.webp"
+            alt=""
+            className="h-full w-full object-cover"
+            style={{ mixBlendMode: "color-dodge", opacity: 0.07 }}
+          />
+        </div>
+
+        {/* top dark gradient — fades hero from near-black at top to transparent.
+            Covers the full width, no hard edges, sits above binary code. */}
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 z-[2] h-[420px]"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.55) 45%, rgba(10,10,10,0) 100%)",
+          }}
+        />
+
         {/* man with laptop — foreground, mirrored */}
         <div
           className="pointer-events-none absolute top-[224px] z-20 h-[993px] w-[1233px]"
@@ -28,12 +50,27 @@ export function Hero() {
           />
         </div>
 
-        {/* dark fade — dissolves the man's lower edge into the background */}
+        {/* dark shape on man — blurred black ellipse that dissolves the
+            man's lower body. Exact Figma coords: top 1010px, left calc(33.33%+61px),
+            1370×447px (node 1:359). Z-25 = above man (z-20), below full-section fade. */}
         <div
-          className="pointer-events-none absolute inset-x-0 bottom-0 z-30 h-[460px]"
+          className="pointer-events-none absolute z-[25] h-[447px] w-[1370px]"
+          style={{ top: 1010, left: "calc(33.33% + 61px)" }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/assets/dark-shape-on-man.svg"
+            alt=""
+            className="block h-full w-full"
+          />
+        </div>
+
+        {/* dark fade — dissolves the section bottom edge into the background */}
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-30 h-[500px]"
           style={{
             background:
-              "linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.85) 78%, rgba(10,10,10,1) 100%)",
+              "linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.9) 75%, rgba(10,10,10,1) 100%)",
           }}
         />
 

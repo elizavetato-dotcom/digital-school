@@ -55,6 +55,12 @@ function GlassFigure({
 export function QuoteSection() {
   return (
     <section className="relative isolate h-[591px] w-full">
+      {/* faint grid texture */}
+      <GridOverlay
+        opacity={0.1}
+        fade="linear-gradient(180deg, transparent 0%, #000 50%, transparent 100%)"
+      />
+
       {/* side glows — boxes stay inside the section, blur bleeds across
           the seams so blocks blend without hard edges */}
       <div
@@ -66,11 +72,6 @@ export function QuoteSection() {
         }}
       />
 
-      {/* faint grid texture — fades 0 → 30% → 0 vertically */}
-      <GridOverlay
-        opacity={0.3}
-        fade="linear-gradient(180deg, transparent 0%, #000 50%, transparent 100%)"
-      />
 
       {/* quote card */}
       <GlassCard className="absolute left-[255px] top-[174px] h-[248px] w-[835px]">

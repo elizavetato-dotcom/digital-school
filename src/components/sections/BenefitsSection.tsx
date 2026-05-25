@@ -100,6 +100,12 @@ export function BenefitsSection() {
       id="benefits"
       className="relative isolate w-full pb-[160px] pt-[120px]"
     >
+      {/* faint grid texture */}
+      <GridOverlay
+        opacity={0.1}
+        fade="linear-gradient(180deg, transparent 0%, #000 50%, transparent 100%)"
+      />
+
       {/* diffuse blue glow — scattered between this block and the previous */}
       <div
         className="pointer-events-none absolute right-0 -top-[260px] h-[560px] w-[820px]"
@@ -108,10 +114,6 @@ export function BenefitsSection() {
             "radial-gradient(50% 50% at 50% 50%, rgba(8,130,255,0.6) 0%, rgba(8,130,255,0) 78%)",
           filter: "blur(170px)",
         }}
-      />
-      <GridOverlay
-        opacity={0.3}
-        fade="linear-gradient(180deg, transparent 0%, #000 50%, transparent 100%)"
       />
 
       <h2 className="relative text-center text-h2">

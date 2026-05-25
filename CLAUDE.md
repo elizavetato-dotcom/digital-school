@@ -34,10 +34,18 @@
 - Скриншоты: `node _design/shot.mjs <width> <out> [selector]` — Playwright, подгоняет вьюпорт чтобы `clientWidth == width` (zoom точный). Без селектора — вся страница.
 - Сверять каждую секцию с `_design/figma-reference.png`
 
-## Прогресс верстки (Фаза 4 — секции, 4 из 11 готовы)
+## Прогресс верстки (Фаза 4 — секции, 5 из 11 готовы)
 - ✅ Header — `Header.tsx`
 - ✅ Hero — `Hero.tsx` (фон `hero-background.webp`, мужчина на переднем плане)
 - ✅ Цитата Грефа — `QuoteSection.tsx`
 - ✅ Что получает преподаватель — `BenefitsSection.tsx` (сетка 6 карточек, свечения `glow-cards-back/front`)
-- ⬜ Осталось: Три сезона → Формат обучения → Условия участия → Stats «7 лет» → FAQ → CTA → Footer
+- ✅ Три сезона — `ThreeSeasonsSection.tsx` (3 папки, Figma-arrow ellipse16+v9+v10, 4-layer gradient bg, border-2 + glow-on-border rule)
+- ⬜ Осталось: Формат обучения → Условия участия → Stats «7 лет» → FAQ → CTA → Footer
 - Дальше: Фаза 5 (адаптив — мобилка) и Фаза 6 (интерактив, QA)
+
+## ThreeSeasonsSection — детали реализации
+- **SeasonArrow**: ellipse16.svg + vector9.svg + vector10.svg, `containerType:"size"`, `hypot()` CSS для размера, rotate -45°
+- **Градиент фона**: 4 слоя (vector7199/7202/7200/7201), позиции в px относительно section top (page y=2855), blend: color-dodge / lighten на слоях 3/4
+- **Синий эллипс**: `ellipse-blue-block3.svg` at `left: calc(100%-122px), top: 97px`, expand `inset-[-138.89%_-203.05%]`
+- **Папка**: outer `border-2 border-white/20` (NO overflow-clip) + inner `overflow-clip rounded-[48px] backdrop-blur-[25px]` + glow `left:-2px top:-2px width:1120 height:folderH` → линии SVG падают строго на контур 2px
+- **Подложка фото**: `border-2 border-white/20` на blackout substrate div
