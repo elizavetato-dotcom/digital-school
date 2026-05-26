@@ -3,6 +3,7 @@ import { Hero } from "@/components/sections/Hero";
 import { QuoteSection } from "@/components/sections/QuoteSection";
 import { BenefitsSection } from "@/components/sections/BenefitsSection";
 import { ThreeSeasonsSection } from "@/components/sections/ThreeSeasonsSection";
+import { FormatSection } from "@/components/sections/FormatSection";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
         <QuoteSection />
         <BenefitsSection />
         <ThreeSeasonsSection />
+        <FormatSection />
       </div>
     </main>
   );
