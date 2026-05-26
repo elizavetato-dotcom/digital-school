@@ -29,7 +29,13 @@ interface FormatCardProps {
   descriptionWidth: number;
   /** SVG-файл glow-линий, viewBox = {width}×{height} */
   glowSrc: string;
-  children?: ReactNode; // внутренние эллипсы-декорации
+  /**
+   * Эллипсы-декорации.
+   * ВАЖНО: рендерятся в отдельном слое ДО стекло-слоя, чтобы
+   * backdrop-blur их размывал (иначе они отрисуются поверх стекла
+   * с полной насыщенностью и карточка будет нечитаемо яркой).
+   */
+  decorations?: ReactNode;
 }
 
 function FormatCard({
@@ -44,21 +50,31 @@ function FormatCard({
   descriptionTop,
   descriptionWidth,
   glowSrc,
-  children,
+  decorations,
 }: FormatCardProps) {
   return (
     <div
       className="absolute border-2 border-white/10 rounded-[25px]"
       style={{ left, top, width, height }}
     >
-      {/* ── Стекло + декорации + текст (всё обрезается overflow-clip) ── */}
+      {/* ── Слой 1: эллипсы-декорации (ниже стекла) ──
+           Координаты — от внешнего левого-верхнего угла карточки
+           (inset:-2px выравнивает по border-box).
+           overflow-clip обрезает части, вылезающие за скруглённый контур. */}
+      {decorations && (
+        <div
+          className="pointer-events-none absolute overflow-clip rounded-[25px]"
+          style={{ inset: "-2px" }}
+        >
+          {decorations}
+        </div>
+      )}
+
+      {/* ── Слой 2: стекло (backdrop-blur размывает фон + эллипсы) ── */}
       <div
         className="absolute overflow-clip rounded-[25px] backdrop-blur-[75px] bg-black/50"
         style={{ inset: "-2px" }}
       >
-        {/* Декоративные эллипсы */}
-        {children}
-
         {/* Заголовок */}
         <div
           className="absolute text-t24 text-gradient-main"
@@ -76,7 +92,7 @@ function FormatCard({
         </p>
       </div>
 
-      {/* ── Glow-линии по контуру ── */}
+      {/* ── Слой 3: glow-линии по контуру (поверх стекла) ── */}
       <div className="pointer-events-none absolute" style={{ inset: "-2px" }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
@@ -190,14 +206,13 @@ export function FormatSection() {
         className="absolute border-2 border-white/20 rounded-[25px]"
         style={{ left: 481.5, top: 230, width: 455, height: 378 }}
       >
-        {/* Стекло-слой */}
+        {/* Слой 1: эллипс снизу (ниже стекла → размывается backdrop-blur) */}
         <div
-          className="absolute overflow-clip rounded-[25px] backdrop-blur-[30px] bg-black/30"
+          className="pointer-events-none absolute overflow-clip rounded-[25px]"
           style={{ inset: "-2px" }}
         >
-          {/* Эллипс-свечение снизу */}
           <div
-            className="pointer-events-none absolute h-[600px]"
+            className="absolute h-[600px]"
             style={{ bottom: -138, left: 49, right: 19 }}
           >
             <div className="absolute" style={{ inset: "-16.67% -26.11%" }}>
@@ -210,6 +225,12 @@ export function FormatSection() {
             </div>
           </div>
         </div>
+
+        {/* Слой 2: стекло */}
+        <div
+          className="absolute overflow-clip rounded-[25px] backdrop-blur-[30px] bg-black/30"
+          style={{ inset: "-2px" }}
+        />
 
         {/* Glow-линии по контуру подложки — встроенный SVG (455×378) */}
         <div className="pointer-events-none absolute" style={{ inset: "-2px" }}>
@@ -328,44 +349,35 @@ export function FormatSection() {
         descriptionTop={91}
         descriptionWidth={399}
         glowSrc="/assets/glow-on-the-sides3.svg"
-      >
-        {/* Эллипс 7 — нижнее свечение */}
-        <div
-          className="pointer-events-none absolute h-[75px]"
-          style={{ bottom: -21, left: 190, right: -2 }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            alt=""
-            className="absolute inset-0 block max-w-none size-full"
-            src="/assets/ellipse7.svg"
-          />
-        </div>
-        {/* Эллипс 10 — верхнее свечение */}
-        <div
-          className="pointer-events-none absolute h-[45px]"
-          style={{ left: -12, right: 93, top: -5 }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            alt=""
-            className="absolute inset-0 block max-w-none size-full"
-            src="/assets/ellipse10.svg"
-          />
-        </div>
-        {/* Эллипс 8 — левая полоса */}
-        <div
-          className="pointer-events-none absolute h-[97px] w-[45px]"
-          style={{ left: -21, top: -2 }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            alt=""
-            className="absolute inset-0 block max-w-none size-full"
-            src="/assets/ellipse8.svg"
-          />
-        </div>
-      </FormatCard>
+        decorations={
+          <>
+            {/* Эллипс 7 — нижнее свечение */}
+            <div
+              className="absolute h-[75px]"
+              style={{ bottom: -21, left: 190, right: -2 }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img alt="" className="absolute inset-0 block max-w-none size-full" src="/assets/ellipse7.svg" />
+            </div>
+            {/* Эллипс 10 — верхнее свечение */}
+            <div
+              className="absolute h-[45px]"
+              style={{ left: -12, right: 93, top: -5 }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img alt="" className="absolute inset-0 block max-w-none size-full" src="/assets/ellipse10.svg" />
+            </div>
+            {/* Эллипс 8 — левая полоса */}
+            <div
+              className="absolute h-[97px] w-[45px]"
+              style={{ left: -21, top: -2 }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img alt="" className="absolute inset-0 block max-w-none size-full" src="/assets/ellipse8.svg" />
+            </div>
+          </>
+        }
+      />
 
       {/* ── Карточка 3: «Гибкий формат по времени» (правый столбец, снизу) ── */}
       <FormatCard
@@ -381,44 +393,26 @@ export function FormatSection() {
         descriptionTop={62}
         descriptionWidth={336}
         glowSrc="/assets/glow-on-the-sides2.svg"
-      >
-        {/* Эллипс 6 — нижнее свечение */}
-        <div
-          className="pointer-events-none absolute h-[56px]"
-          style={{ bottom: -2, left: 186, right: -2 }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            alt=""
-            className="absolute inset-0 block max-w-none size-full"
-            src="/assets/ellipse6.svg"
-          />
-        </div>
-        {/* Эллипс 9 — верхнее свечение */}
-        <div
-          className="pointer-events-none absolute h-[38px]"
-          style={{ left: -2, right: 94, top: -5 }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            alt=""
-            className="absolute inset-0 block max-w-none size-full"
-            src="/assets/ellipse9.svg"
-          />
-        </div>
-        {/* Эллипс 8 — левая полоса */}
-        <div
-          className="pointer-events-none absolute h-[97px] w-[45px]"
-          style={{ left: -21, top: -2 }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            alt=""
-            className="absolute inset-0 block max-w-none size-full"
-            src="/assets/ellipse8.svg"
-          />
-        </div>
-      </FormatCard>
+        decorations={
+          <>
+            {/* Эллипс 6 — нижнее свечение */}
+            <div className="absolute h-[56px]" style={{ bottom: -2, left: 186, right: -2 }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img alt="" className="absolute inset-0 block max-w-none size-full" src="/assets/ellipse6.svg" />
+            </div>
+            {/* Эллипс 9 — верхнее свечение */}
+            <div className="absolute h-[38px]" style={{ left: -2, right: 94, top: -5 }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img alt="" className="absolute inset-0 block max-w-none size-full" src="/assets/ellipse9.svg" />
+            </div>
+            {/* Эллипс 8 — левая полоса */}
+            <div className="absolute h-[97px] w-[45px]" style={{ left: -21, top: -2 }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img alt="" className="absolute inset-0 block max-w-none size-full" src="/assets/ellipse8.svg" />
+            </div>
+          </>
+        }
+      />
 
       {/* ── Карточка 1: «Полностью онлайн» (левый столбец, середина) ── */}
       <FormatCard
@@ -434,44 +428,26 @@ export function FormatSection() {
         descriptionTop={62}
         descriptionWidth={310}
         glowSrc="/assets/glow-on-the-sides4.svg"
-      >
-        {/* Эллипс 11 — нижнее свечение */}
-        <div
-          className="pointer-events-none absolute h-[76px]"
-          style={{ bottom: -22, left: 85, right: -2 }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            alt=""
-            className="absolute inset-0 block max-w-none size-full"
-            src="/assets/ellipse11.svg"
-          />
-        </div>
-        {/* Эллипс 12 — верхнее свечение */}
-        <div
-          className="pointer-events-none absolute h-[50px]"
-          style={{ left: -12, right: 93, top: -10 }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            alt=""
-            className="absolute inset-0 block max-w-none size-full"
-            src="/assets/ellipse12.svg"
-          />
-        </div>
-        {/* Эллипс 8 — левая полоса */}
-        <div
-          className="pointer-events-none absolute h-[97px] w-[45px]"
-          style={{ left: -21, top: -2 }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            alt=""
-            className="absolute inset-0 block max-w-none size-full"
-            src="/assets/ellipse8.svg"
-          />
-        </div>
-      </FormatCard>
+        decorations={
+          <>
+            {/* Эллипс 11 — нижнее свечение */}
+            <div className="absolute h-[76px]" style={{ bottom: -22, left: 85, right: -2 }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img alt="" className="absolute inset-0 block max-w-none size-full" src="/assets/ellipse11.svg" />
+            </div>
+            {/* Эллипс 12 — верхнее свечение */}
+            <div className="absolute h-[50px]" style={{ left: -12, right: 93, top: -10 }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img alt="" className="absolute inset-0 block max-w-none size-full" src="/assets/ellipse12.svg" />
+            </div>
+            {/* Эллипс 8 — левая полоса */}
+            <div className="absolute h-[97px] w-[45px]" style={{ left: -21, top: -2 }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img alt="" className="absolute inset-0 block max-w-none size-full" src="/assets/ellipse8.svg" />
+            </div>
+          </>
+        }
+      />
 
       {/* ── Фотография женщины (передний план, перекрывает карточки) ── */}
       <div
