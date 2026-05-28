@@ -108,7 +108,7 @@ function FormatCard({
     >
       {/* 1 – glass body (clipped so blur stays inside) */}
       <div
-        className="absolute inset-0 overflow-clip rounded-[23px] backdrop-blur-[15px]"
+        className="absolute inset-0 overflow-clip rounded-[23px] backdrop-blur-[40px]"
         style={{ background: cardBg, opacity: 0.7 }}
       />
 
