@@ -40,7 +40,7 @@
 - ✅ Цитата Грефа — `QuoteSection.tsx`
 - ✅ Что получает преподаватель — `BenefitsSection.tsx` (сетка 6 карточек, свечения `glow-cards-back/front`)
 - ✅ Три сезона — `ThreeSeasonsSection.tsx` (3 папки, Figma-arrow ellipse16+v9+v10, 4-layer gradient bg, border-2 + glow-on-border rule)
-- ✅ Формат обучения — `FormatSection.tsx` (Figma 58:361, 3 карточки + женщина, абсолютная сетка 1440px, glow-on-the-sides2/3/4)
+- ✅ Формат обучения — `FormatSection.tsx` (Figma 58:361+60:514, 3 карточки + женщина, backdrop-blur на outer div, радиальный градиент bg, glow SVG на контуре)
 - ⬜ Осталось: Условия участия → Stats «7 лет» → FAQ → CTA → Footer
 - Дальше: Фаза 5 (адаптив — мобилка) и Фаза 6 (интерактив, QA)
 
