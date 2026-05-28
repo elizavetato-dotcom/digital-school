@@ -53,8 +53,8 @@ function CardUnderWomanGlow() {
     <>
       <span className="pointer-events-none absolute" style={{ top: -2, left: "calc(50% + 5px)", transform: "translateX(-50%)", width: 275, height: 2, background: hg(blue) }} />
       <span className="pointer-events-none absolute" style={{ bottom: -2, left: "calc(50% + 5px)", transform: "translateX(-50%)", width: 275, height: 2, background: hg(green) }} />
-      <span className="pointer-events-none absolute" style={{ left: -2, top: 270, width: 2, height: 250, background: vg(green) }} />
-      <span className="pointer-events-none absolute" style={{ right: -2, top: 35, width: 2, height: 250, background: vg(blue) }} />
+      <span className="pointer-events-none absolute" style={{ left: -2, top: 124, width: 2, height: 300, background: vg(green) }} />
+      <span className="pointer-events-none absolute" style={{ right: -2, top: 124, width: 2, height: 300, background: vg(blue) }} />
     </>
   );
 }
@@ -62,9 +62,10 @@ function CardUnderWomanGlow() {
 /* ── generic content card ────────────────────────────────────────────────── */
 /*
   Layer order (back → front):
-  1. glass body  – absolute inset-0, overflow-clip, blur, opacity 0.7
-  2. texts       – absolute positioned
-  3. glow SVG    – absolute (0,0), inner extends via negative inset → sits on contour
+  1. outer shell  – backdrop-blur (NO bg, NO overflow → glow can extend outside)
+  2. glass body   – overflow-clip, opacity 0.7 (30% lets blurred backdrop show through)
+  3. texts
+  4. glow SVG     – negative inset → sits on 2px contour
 */
 function FormatCard({
   left,
@@ -103,12 +104,12 @@ function FormatCard({
 }) {
   return (
     <div
-      className="absolute z-30 rounded-[25px]"
+      className="absolute z-30 rounded-[25px] backdrop-blur-[25px]"
       style={{ left, top, width, height, border: "2px solid rgba(255,255,255,0.1)" }}
     >
-      {/* 1 – glass body (clipped so blur stays inside) */}
+      {/* 1 – glass body: semi-transparent so blurred backdrop shows through */}
       <div
-        className="absolute inset-0 overflow-clip rounded-[23px] backdrop-blur-[80px]"
+        className="absolute inset-0 overflow-clip rounded-[23px]"
         style={{ background: cardBg, opacity: 0.7 }}
       />
 
@@ -225,8 +226,8 @@ export function FormatSection() {
         titleWidth={316}
         bodyText="Занятия распределены по сезонам чтобы их можно было совмещать с учебной нагрузкой и сессией"
         bodyTop={62} bodyWidth={398}
-        glowSrc="/assets/format-glow-card3.svg" glowW={453} glowH={159}
-        glowInsetTop="-1.26%" glowInsetLeft="-0.44%"
+        glowSrc="/assets/format-glow-card3.svg" glowW={364} glowH={159}
+        glowInsetTop="-1.26%" glowInsetLeft="-0.55%"
       />
 
       {/* ── heading – z-40, top of stack ──────────────────────────────────── */}
