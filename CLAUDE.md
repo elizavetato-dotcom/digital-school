@@ -34,13 +34,14 @@
 - Скриншоты: `node _design/shot.mjs <width> <out> [selector]` — Playwright, подгоняет вьюпорт чтобы `clientWidth == width` (zoom точный). Без селектора — вся страница.
 - Сверять каждую секцию с `_design/figma-reference.png`
 
-## Прогресс верстки (Фаза 4 — секции, 5 из 11 готовы)
+## Прогресс верстки (Фаза 4 — секции, 6 из 11 готовы)
 - ✅ Header — `Header.tsx`
 - ✅ Hero — `Hero.tsx` (фон `hero-background.webp`, мужчина на переднем плане)
 - ✅ Цитата Грефа — `QuoteSection.tsx`
 - ✅ Что получает преподаватель — `BenefitsSection.tsx` (сетка 6 карточек, свечения `glow-cards-back/front`)
 - ✅ Три сезона — `ThreeSeasonsSection.tsx` (3 папки, Figma-arrow ellipse16+v9+v10, 4-layer gradient bg, border-2 + glow-on-border rule)
-- ⬜ Осталось: Формат обучения → Условия участия → Stats «7 лет» → FAQ → CTA → Footer
+- ✅ Формат обучения — `FormatSection.tsx` (Figma 58:361, 3 карточки + женщина, абсолютная сетка 1440px, glow-on-the-sides2/3/4)
+- ⬜ Осталось: Условия участия → Stats «7 лет» → FAQ → CTA → Footer
 - Дальше: Фаза 5 (адаптив — мобилка) и Фаза 6 (интерактив, QA)
 
 ## ThreeSeasonsSection — детали реализации
